@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+.container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #ffff00;
+  height: 100vh;
+}
+
+body.with-container {
+  display: unset;
+  overflow: unset;
+}
+
+body.with-container > * {
+  margin: 1em;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  min-height: 400px;
+}
+
+.block {
+  min-width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 32px;
+  width: 100%;
+  background: #013dff;
+  color: #fff;
+}
+
+.block a {
+  color: inherit;
+}

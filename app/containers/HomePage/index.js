@@ -5,14 +5,65 @@
  *
  */
 
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
-
+import useHorizontal from '@oberon-amsterdam/horizontal/hook';
+import * as React from 'react';
+import { useState } from 'react';
+import './HomePage.css';
 export default function HomePage() {
+  // I'd prefer to use useRef, but we need a rerender to be triggered
+  const [container, setContainer] = useState();
+
+  useHorizontal();
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
+  });
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <React.Fragment>
+      <div
+        className="container"
+        ref={ref => {
+          setContainer(ref);
+        }}
+      >
+        <div
+          className="block"
+          id="start"
+          style={{ backgroundColor: '#000100' }}
+        >
+          Landing Page
+        </div>
+
+        <div
+          className="block"
+          style={{ backgroundColor: '#f6d048', color: '#000100' }}
+        >
+          Services Page
+        </div>
+
+        <div
+          className="block"
+          style={{ backgroundColor: '#baa5ff', color: '#fff' }}
+        >
+          See react example
+        </div>
+
+        <div
+          className="block"
+          style={{
+            backgroundColor: '#eb5e55',
+            color: '#000100',
+            textDecoration: 'none',
+          }}
+        >
+          <a href="#start">Back to start</a>
+        </div>
+      </div>
+    </React.Fragment>
   );
 }
