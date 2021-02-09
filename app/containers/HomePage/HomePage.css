@@ -5,13 +5,18 @@
 body,
 .container {
   display: flex;
+  flex-direction: row;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   background: #ffff00;
-  height: 100vh;
 }
-
+@media only screen and (max-width: 768px) {
+  body,
+  .container {
+    flex-direction: column;
+  }
+}
 body.with-container {
   display: unset;
   overflow: unset;

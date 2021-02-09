@@ -6,14 +6,22 @@
  */
 
 import useHorizontal from '@oberon-amsterdam/horizontal/hook';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from 'react-device-detect';
 import * as React from 'react';
 import { useState } from 'react';
 import './HomePage.css';
 export default function HomePage() {
   // I'd prefer to use useRef, but we need a rerender to be triggered
   const [container, setContainer] = useState();
-
-  useHorizontal();
+  if (isBrowser) {
+    useHorizontal();
+    console.log('anvesh');
+  }
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
