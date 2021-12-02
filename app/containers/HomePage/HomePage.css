@@ -11,12 +11,7 @@ body,
   font-family: sans-serif;
   background: #ffff00;
 }
-@media only screen and (max-width: 768px) {
-  body,
-  .container {
-    flex-direction: column;
-  }
-}
+
 body.with-container {
   display: unset;
   overflow: unset;
@@ -39,12 +34,27 @@ body.with-container > * {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 32px;
+  font-size: 40px;
   width: 100%;
+  font-weight: 400;
   background: #013dff;
   color: #fff;
 }
 
 .block a {
   color: inherit;
+  font-size: 70px;
+}
+@media only screen and (max-width: 768px) {
+  body,
+  .container {
+    flex-direction: column;
+  }
+  .block {
+    font-size: 30px;
+  }
+
+  .block a {
+    font-size: 30px;
+  }
 }

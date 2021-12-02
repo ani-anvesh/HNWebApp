@@ -15,6 +15,7 @@ import {
 import * as React from 'react';
 import { useState } from 'react';
 import './HomePage.css';
+import Header from '../../components/Header';
 export default function HomePage() {
   // I'd prefer to use useRef, but we need a rerender to be triggered
   const [container, setContainer] = useState();
@@ -33,6 +34,8 @@ export default function HomePage() {
   });
   return (
     <React.Fragment>
+      <Header />
+
       <div
         className="container"
         ref={ref => {
@@ -42,7 +45,7 @@ export default function HomePage() {
         <div
           className="block"
           id="start"
-          style={{ backgroundColor: '#000100' }}
+          style={{ backgroundColor: '#000000' }}
         >
           Landing Page
         </div>
